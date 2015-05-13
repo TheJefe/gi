@@ -31,7 +31,7 @@ end
 
 def include_labels(issues, label)
   issues.each do |i|
-    events = get(i['events_url'])
+    events = get(i['events_url']+"?per_page=100")
     label_event = events.select {|e| e['event'] == 'labeled' and e['label']['name'] == label }.last
     label_event['created_at'] = format_time(label_event['created_at'])
     label_data = {'label_data' => label_event }
