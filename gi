@@ -2,7 +2,6 @@
 
 require 'httparty'
 require 'haml'
-require 'pry'
 
 GITHUB_TOKEN=ENV['GITHUB_TOKEN']
 GITHUB_USERNAME=ENV['GITHUB_USERNAME']
