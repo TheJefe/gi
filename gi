@@ -48,7 +48,7 @@ def html(issues)
   file_path = File.expand_path('../template.html.haml', __FILE__)
   template = File.read(file_path)
   engine = Haml::Engine.new(template)
-  File.write 'pulls.html',engine.render
+  File.write 'issues.html',engine.render
 end
 
 def print(issues)
