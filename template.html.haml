@@ -1,0 +1,16 @@
+%h2 Pull Requests
+%table{:border => "1"}
+  %thead
+    %tr
+      %th ID
+      %th DESCRIPTION
+      %th Label Created
+      %th ASSIGNEE
+  %tbody
+  - $issues.each do |issue|
+    %tr
+      %td
+        %a{href: issue['html_url']}= issue['number']
+      %td= issue['title']
+      %td= issue['label_data']['created_at']
+      %td= issue['assignee']['login'] if issue['assignee']
