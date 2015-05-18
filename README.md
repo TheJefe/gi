@@ -16,6 +16,14 @@ This script requires a couple of environment variables to work
     export GITHUB_TOKEN=1234
     export GI_QUERY="state:open type:pr user:thinkthroughmath label:\"Needs QA\""
 
+##### For OSx
+
+For OSx I find it best to set the above environment variables listed above in `/etc/profile`. That way they aren't likely to get checked into any source control, and they should be available on all of your terminal sessions.
+
+Secondly, it I find that setting the following alias in my `~/.bash_profile` makes it convenient to run.
+
+    alias gi="/git/gi/gi; open issues.html; sleep 2; rm issues.html"
+
 #### Usage
 
 You can run this script with this
