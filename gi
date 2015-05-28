@@ -68,5 +68,8 @@ end
 # MAIN
 
 issues = get_issues
-html issues
-#print issues
+if ARGV.length > 0
+  print issues
+else
+  html issues
+end
