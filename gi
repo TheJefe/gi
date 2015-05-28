@@ -45,7 +45,7 @@ def include_labels(issues, label)
 end
 
 def format_time(time)
-  (Time.parse(time) + Time.zone_offset('EST')).strftime('%Y-%m-%d %I:%M:%S').to_s
+  (Time.parse(time) + Time.zone_offset('EST')).strftime('%Y-%m-%d %I:%M:%S %p').to_s
 end
 
 def html(issues)
