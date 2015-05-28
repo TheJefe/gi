@@ -27,6 +27,11 @@ def get_issues()
   label = QUERY.match(/label:\"(.*)\"/)[1]
   puts "GI_QUERY must include a label" unless label
   include_labels(issues, label)
+  sort_issues(issues)
+end
+
+def sort_issues(issues)
+  issues.sort_by {|i| i['label_data']['created_at']}
 end
 
 def include_labels(issues, label)
@@ -63,6 +68,5 @@ end
 # MAIN
 
 issues = get_issues
-issues = issues.sort_by {|i| i['label_data']['created_at']}
 html issues
 #print issues
