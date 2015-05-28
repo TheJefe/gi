@@ -38,7 +38,6 @@ def include_labels(issues, label)
   issues.each do |i|
     events = get(i['events_url']+"?per_page=100")
     label_event = events.select {|e| e['event'] == 'labeled' and e['label']['name'] == label }.last
-    label_event['created_at'] = format_time(label_event['created_at'])
     label_data = {'label_data' => label_event }
     i['label_data'] = label_event
   end
@@ -58,8 +57,7 @@ end
 
 def print(issues)
   issues.each do |issue|
-    formatedTime = (Time.parse(issue['label_data']['created_at']) + Time.zone_offset('EST')).strftime('%Y-%m-%d %I:%M:%S').to_s
-    output =  issue['html_url'] + " : " + issue['title'] + " : " + formatedTime
+    output =  issue['html_url'] + " : " + issue['title'] + " : " + format_time(issue['label_data']['created_at'])
     output += ": #{issue['assignee']['login']}" if issue['assignee']
     puts output
   end
