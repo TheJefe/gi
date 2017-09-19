@@ -31,3 +31,7 @@ You can run this script with this
     ./gi
 
 You should then have a local file, `issues.html` that you can open in a browser
+
+#### Wrapped in a webserver
+
+see https://github.com/anthlam/gi-web
